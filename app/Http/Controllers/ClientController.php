@@ -22,15 +22,15 @@ class ClientController extends Controller
         return $client;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Client $client)
+    public function show($client)
     {
-        //
+        $client = Client::find($client);
+
+        if (empty($client)) {
+            return response()->json(['Message' => 'Cliente nao encontrado']);
+        }
+
+        return response()->json($client->toArray());
     }
 
     /**

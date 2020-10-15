@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Services\Client\CreateClient;
+use App\Services\Client\DeleteClient;
 use App\Services\Client\GetClient;
 use App\Services\Client\UpdateClient;
-use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -21,7 +21,7 @@ class ClientController extends Controller
         /** @var Client $client */
         $client = call_user_func(new CreateClient(), $request->validated());
 
-        return $client;
+        return response()->json($client->toArray(), 201);
     }
 
     public function show(string $id)
@@ -43,14 +43,10 @@ class ClientController extends Controller
         return response()->json($client->toArray());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Client $client)
+    public function destroy(string $id)
     {
-        //
+        call_user_func(new DeleteClient(), $id);
+
+        return response([], 204);
     }
 }

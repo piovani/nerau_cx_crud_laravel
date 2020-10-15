@@ -11,7 +11,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-
+        return response()->json(Client::all());
     }
 
     public function store(ClientRequest $request)

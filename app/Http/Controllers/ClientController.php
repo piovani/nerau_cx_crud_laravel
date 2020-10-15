@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Services\Client\CreateClient;
+use App\Services\Client\GetClient;
+use App\Services\Client\UpdateClient;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -22,27 +24,23 @@ class ClientController extends Controller
         return $client;
     }
 
-    public function show($client)
+    public function show(string $id)
     {
-        $client = Client::find($client);
-
-        if (empty($client)) {
+        if (empty($client = call_user_func(new GetClient(), $id))) {
             return response()->json(['Message' => 'Cliente nao encontrado']);
         }
 
         return response()->json($client->toArray());
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Client $client)
+    public function update(ClientRequest $request, string $id)
     {
-        //
+        $data = $request->validated();
+        $data['id'] = $id;
+
+        $client = call_user_func(new UpdateClient(), $data);
+
+        return response()->json($client->toArray());
     }
 
     /**

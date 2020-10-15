@@ -28,3 +28,6 @@ Execute o seguinte comando:
 ```
 php artisan migrate
 ```
+
+# Teste das Rotas
+Para facilitar os testes, eu adicionei um arquivo de collection de requests do Postman, basta importa-lo, nome do arquivo: "Nerau_CX.postman_collection.json"

@@ -18,5 +18,6 @@ class Client extends Domain
         'name',
         'email',
         'phone',
+        'address',
     ];
 }

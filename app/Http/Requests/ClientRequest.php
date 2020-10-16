@@ -27,6 +27,7 @@ class ClientRequest extends FormRequest
             'name' => ['required', 'string'],
             'email' => ['required', 'string', 'email'],
             'phone' => ['required', 'string'],
+            'address' => ['required', 'string'],
         ];
     }
 }

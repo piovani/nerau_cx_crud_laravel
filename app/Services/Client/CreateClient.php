@@ -12,6 +12,7 @@ class CreateClient
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'address' => $data['address'],
         ]);
     }
 }

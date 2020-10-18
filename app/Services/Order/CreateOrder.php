@@ -3,6 +3,7 @@
 namespace App\Services\Order;
 
 use App\Models\Order;
+use App\Services\Order\OrderItem\CreateOrderItem;
 
 class CreateOrder
 {
@@ -18,7 +19,7 @@ class CreateOrder
             $total += $totalProduct;
         });
 
-        return Order::create([
+        $order = Order::create([
             'code' => Order::nextCode(),
             'client_id' => $data['client_id'],
             'value_freight'=> $data['value_freight'],
@@ -27,5 +28,16 @@ class CreateOrder
             'subtotal_products' => $totalProducts,
             'total' => $total,
         ]);
+
+        $this->createProducts($order, $data['products']);
+
+        return $order;
+    }
+
+    private function createProducts(Order $order, array $products): void
+    {
+        collect($products)->each(function ($product) use ($order) {
+            call_user_func(new CreateOrderItem(), $order, $product);
+        });
     }
 }

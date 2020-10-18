@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use phpDocumentor\Reflection\Types\Integer;
 
 /**
@@ -21,6 +22,7 @@ use phpDocumentor\Reflection\Types\Integer;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon $deleted_at
+ * @property Collection $items
  */
 class Order extends Domain
 {
@@ -34,6 +36,10 @@ class Order extends Domain
         'total',
         'form_payment',
         'form_delivery',
+    ];
+
+    protected $with = [
+        'items',
     ];
 
     const STATUS_OPEN = 'open';
@@ -54,6 +60,16 @@ class Order extends Domain
         self::FORM_DELIVERY_POST,
         'sjdaisjd'
     ];
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function totalProducts(): float
+    {
+        return $this->items->sum('total');
+    }
 
     public static function nextCode(): int
     {

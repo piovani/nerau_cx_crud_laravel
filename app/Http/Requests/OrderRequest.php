@@ -19,8 +19,9 @@ class OrderRequest extends FormRequest
             'value_freight' => ['required', 'numeric'],
 
             'products' => ['required', 'array'],
+
             'products.*.product_id' => ['required', 'uuid', 'exists:products,id'],
-            'products.*.amount' => ['required', 'integer'],
+            'products.*.amount' => ['required', 'integer', 'min:1'],
             'products.*.value' => ['required', 'numeric'],
 
             'form_payment' => ['required', 'in:' . implode(',', Order::FORM_PAYMENT)],

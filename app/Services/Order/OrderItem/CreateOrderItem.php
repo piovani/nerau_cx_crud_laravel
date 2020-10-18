@@ -14,6 +14,12 @@ class CreateOrderItem
         /** @var Product $product */
         $product = call_user_func(new GetProduct(), $data['product_id']);
 
+        if ($product->stock < $data['amount']) {
+            throw new \Exception('Sem estoque sucificiente de um dos produtos');
+        }
+
+        $product->subtractStock($data['amount']);
+
         return OrderItem::create([
             'order_id' => $order->id,
             'order_code' => $order->code,

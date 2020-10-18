@@ -27,4 +27,10 @@ class Product extends Domain
         'stock',
         'status',
     ];
+
+    public function subtractStock(int $amount): void
+    {
+        $this->stock -= $amount;
+        $this->save();
+    }
 }

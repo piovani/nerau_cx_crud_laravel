@@ -1,149 +1,598 @@
 {
 	"info": {
-		"_postman_id": "37f0fcd2-9200-44fa-bdba-b4144ad73ac9",
+		"_postman_id": "b9cdcb12-6497-49d4-b0e5-e3a95659da62",
 		"name": "Nerau_CX",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "CREATE",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Teste 1\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"(44) 9999-9999\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Client",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teste 1\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"(44) 9999-9999\",\n    \"address\": \"RUA FULADO DE TAL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8000/api/client",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"client"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "LIST",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8000/api/client",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"client"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "READ",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "localhost:8000/api/client/a4274a38-68e9-4be8-9b02-4be741a0ee6b",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"client",
-						"a4274a38-68e9-4be8-9b02-4be741a0ee6b"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "UPDATE",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Teste 2\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"(44) 9999-9999\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "LIST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8000/api/client/a4274a38-68e9-4be8-9b02-4be741a0ee6b",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"client",
-						"a4274a38-68e9-4be8-9b02-4be741a0ee6b"
-					]
+				{
+					"name": "READ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/client/a4274a38-68e9-4be8-9b02-4be741a0ee6b",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client",
+								"a4274a38-68e9-4be8-9b02-4be741a0ee6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teste 2\",\n    \"email\": \"email@email.com\",\n    \"phone\": \"(44) 9999-9999\",\n    \"address\": \"AVENDA SAO JOSE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/client/61000dbe-5243-41ec-b2db-c421f4e6e3b9",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client",
+								"61000dbe-5243-41ec-b2db-c421f4e6e3b9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/client/e05ca9e3-bd59-4c6f-bc47-e595c79aa2d2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"client",
+								"e05ca9e3-bd59-4c6f-bc47-e595c79aa2d2"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "DELETE",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "localhost:8000/api/client/e05ca9e3-bd59-4c6f-bc47-e595c79aa2d2",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"client",
-						"e05ca9e3-bd59-4c6f-bc47-e595c79aa2d2"
-					]
+			"name": "Product",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzAwOTI3OSwiZXhwIjoxNjAzMDEyODc5LCJuYmYiOjE2MDMwMDkyNzksImp0aSI6Ikg4M1FidXU2UGtpZ2RKTXkiLCJzdWIiOjAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJuYW1lIjpudWxsLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.kvIBMJ3l1fvWy40g13XTre4TlvJzNSkm4HBZj_viYFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Computador\",\n    \"price\": 10000.00,\n    \"weight\": 1,\n    \"image\": \"https://picsum.photos/id/237/200/300\",\n    \"description\": \"Computador i9 10900k\",\n    \"stock\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/product",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Computador\",\n    \"price\": 10000.00,\n    \"weight\": 1,\n    \"image\": \"https://picsum.photos/id/237/200/300\",\n    \"description\": \"Computador i9 10900k\",\n    \"stock\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/product",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Computador\",\n    \"price\": 10000.00,\n    \"weight\": 1,\n    \"image\": \"https://picsum.photos/id/237/200/300\",\n    \"description\": \"Computador i9 10900k\",\n    \"stock\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/product/94e4056e-c175-49f0-9974-1011f7fbe798",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"94e4056e-c175-49f0-9974-1011f7fbe798"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Computador ALTERADO\",\n    \"price\": 500000.00,\n    \"weight\": 199,\n    \"image\": \"https://picsum.photos/id/237/200/300\",\n    \"description\": \"Computador i9 10900k\",\n    \"stock\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/product/94e4056e-c175-49f0-9974-1011f7fbe798",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"94e4056e-c175-49f0-9974-1011f7fbe798"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Computador\",\n    \"price\": 10000.00,\n    \"weight\": 1,\n    \"image\": \"https://picsum.photos/id/237/200/300\",\n    \"description\": \"Computador i9 10900k\",\n    \"stock\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/product/94e4056e-c175-49f0-9974-1011f7fbe798",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"product",
+								"94e4056e-c175-49f0-9974-1011f7fbe798"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzA0MjM0OSwiZXhwIjoxNjAzMDQ1OTQ5LCJuYmYiOjE2MDMwNDIzNDksImp0aSI6IkZaWDUxaDY4aHE2emxHSnEiLCJzdWIiOjAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJuYW1lIjpudWxsLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.ANVMaCgANGjw5XPw7lP7JQ0IRGykjI0uoNoJdcsGtpk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"b65103dd-1d48-4c57-a5bf-c0b3b17e0e88\",\n    \"products\": [\n        {\n            \"product_id\": \"84209827-e8f8-4925-a2bc-df51c0b0ac9c\",\n            \"amount\": 20,\n            \"value\": 10\n        }\n    ],\n    \"form_payment\": \"a vista\",\n    \"form_delivery\": \"correios\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/order",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"61000dbe-5243-41ec-b2db-c421f4e6e3b9\",\n    \"value_freight\": 10.00,\n    \"products\": [\n        {\n            \"product_id\": \"94e4056e-c175-49f0-9974-1011f7fbe798\",\n            \"amount\": 1,\n            \"value\": 204.00\n        },\n        {\n            \"product_id\": \"c594717d-ebf4-4bd4-a8c1-66d629d6912f\",\n            \"amount\": 50,\n            \"value\": 10\n        }\n    ],\n    \"form_payment\": \"dinheiro\",\n    \"form_delivery\": \"correios\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/order",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"61000dbe-5243-41ec-b2db-c421f4e6e3b9\",\n    \"value_freight\": 10.00,\n    \"products\": [\n        {\n            \"product_id\": \"94e4056e-c175-49f0-9974-1011f7fbe798\",\n            \"amount\": 1,\n            \"value\": 204.00\n        },\n        {\n            \"product_id\": \"c594717d-ebf4-4bd4-a8c1-66d629d6912f\",\n            \"amount\": 50,\n            \"value\": 10\n        }\n    ],\n    \"form_payment\": \"dinheiro\",\n    \"form_delivery\": \"correios\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/order/1d13210d-5c44-421f-a408-cc45ad211782",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order",
+								"1d13210d-5c44-421f-a408-cc45ad211782"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/order/b31cecf1-96e4-4081-8341-b36f80f1ba34",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order",
+								"b31cecf1-96e4-4081-8341-b36f80f1ba34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\": \"61000dbe-5243-41ec-b2db-c421f4e6e3b9\",\n    \"products\": [\n        {\n            \"product_id\": \"94e4056e-c175-49f0-9974-1011f7fbe798\",\n            \"amount\": 50,\n            \"value\": 5000\n        },\n        {\n            \"product_id\": \"c594717d-ebf4-4bd4-a8c1-66d629d6912f\",\n            \"amount\": 89,\n            \"value\": 9999.89\n        }\n    ],\n    \"form_payment\": \"dinheiro\",\n    \"form_delivery\": \"correios\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/order/830b8fa8-03f9-4c78-8f50-21f7141a3100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order",
+								"830b8fa8-03f9-4c78-8f50-21f7141a3100"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNjAyOTk4NzQ3LCJleHAiOjE2MDMwMDIzNDcsIm5iZiI6MTYwMjk5ODc0NywianRpIjoia0JPTHRKcE1IYmtKNDQwRCIsInN1YiI6MCwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Hdv0Fnkz5-vmTNP-cdInf603osMrp3SQXlXUzR20jSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/auth/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}

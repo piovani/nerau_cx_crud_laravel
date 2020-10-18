@@ -71,6 +71,19 @@ class Order extends Domain
         return $this->items->sum('total');
     }
 
+    public function sumValueFreight(): float
+    {
+        $valueForKg = (float) env('VALUE_FREIGHT_KG');
+        $weight = 0.00;
+        $partOrderPrice = $this->totalProducts() * 0.05;
+
+        $this->items->each(function ($item) use (&$weight) {
+            $weight += $item->product->weight * $item->amount;
+        });
+
+        return ($valueForKg * $weight) + $partOrderPrice;
+    }
+
     public static function nextCode(): int
     {
         $lastCode = Order::query()->select()->max('code');

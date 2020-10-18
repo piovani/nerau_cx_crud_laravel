@@ -14,7 +14,7 @@ class CreateOrderItem
         /** @var Product $product */
         $product = call_user_func(new GetProduct(), $data['product_id']);
 
-        if ($product->status === Product::STATUS_ACTIVE) {
+        if ($product->status !== Product::STATUS_ACTIVE) {
             throw new \Exception(sprintf('O produto %s está inativo', $product->name));
         }
 

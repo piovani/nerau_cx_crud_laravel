@@ -16,7 +16,6 @@ class OrderRequest extends FormRequest
     {
         return [
             'client_id' => ['required', 'uuid', 'exists:clients,id'],
-            'value_freight' => ['required', 'numeric'],
 
             'products' => ['required', 'array'],
 

@@ -32,4 +32,9 @@ class OrderItem extends Domain
         'value_unit',
         'total'
     ];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class, 'id', 'product_id');
+    }
 }

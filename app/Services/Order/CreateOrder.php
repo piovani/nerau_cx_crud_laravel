@@ -10,8 +10,8 @@ class CreateOrder
 {
     public function __invoke(array $data): ?Order
     {
-        $totalProducts = 0.0;
-        $total = $data['value_freight'];
+        $totalProducts = 0.00;
+        $total = 0.00;
         $order = null;
 
         collect($data['products'])->each(function ($product) use (&$totalProducts, &$total) {
@@ -22,17 +22,22 @@ class CreateOrder
         });
 
         DB::transaction(function () use (&$order, $data, $totalProducts, $total) {
+            /** @var Order $order */
             $order = Order::create([
                 'code' => Order::nextCode(),
                 'client_id' => $data['client_id'],
-                'value_freight'=> $data['value_freight'],
                 'form_payment' => $data['form_payment'],
                 'form_delivery' => $data['form_delivery'],
                 'subtotal_products' => $totalProducts,
-                'total' => $total,
+                'value_freight' => 0.00,
+                'total' => 0.00,
             ]);
 
             $this->createProducts($order, $data['products']);
+
+            $order->value_freight = $order->sumValueFreight();
+            $order->total = $total + $order->sumValueFreight();
+            $order->save();
         });
 
         return $order;

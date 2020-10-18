@@ -48,10 +48,12 @@ class Order extends Domain
         self::STATUS_OPEN,
     ];
 
-    const FORM_PAYMENT_MONEY = 'dinheiro';
+    const FORM_PAYMENT_CASH = 'a vista';
+    const FORM_PAYMENT_TERM = 'a prazo';
 
     const FORM_PAYMENT = [
-        self::FORM_PAYMENT_MONEY,
+        self::FORM_PAYMENT_CASH,
+        self::FORM_PAYMENT_TERM,
     ];
 
     const FORM_DELIVERY_POST = 'correios';

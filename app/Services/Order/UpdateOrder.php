@@ -5,11 +5,13 @@ namespace App\Services\Order;
 use App\Models\Order;
 use App\Services\Order\OrderItem\CreateOrderItem;
 use App\Services\Order\OrderItem\DeleteOrderItem;
+use Illuminate\Support\Facades\DB;
 
 class UpdateOrder
 {
     public function __invoke(string $id, array $data): ?Order
     {
+        /** @var Order $order */
         if (empty($order = call_user_func(new GetOrder(), $id))) {
             return null;
         }
@@ -17,10 +19,19 @@ class UpdateOrder
         $this->deleteOldItems($order);
         $this->createNewItems($order, $data['products']);
 
-        $data['subtotal_products'] = $order->totalProducts();
-        $data['total'] = $order->totalProducts() + $data['value_freight'];
+        DB::transaction(function () use (&$order, $data) {
+            $order->update($data);
 
-        $order->update($data);
+            $order->subtotal_products = $order->totalProducts();
+            $order->value_freight = $order->sumValueFreight();
+            $order->total = $order->totalProducts() + $order->sumValueFreight();
+
+            if ($data['form_payment'] === Order::FORM_PAYMENT_CASH) {
+                $order->total -= ($order->total * env('CASH_DISCOUNT')) ;
+            }
+
+            $order->save();
+        });
 
         return $order;
     }

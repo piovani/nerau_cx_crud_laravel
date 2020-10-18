@@ -37,6 +37,11 @@ class CreateOrder
 
             $order->value_freight = $order->sumValueFreight();
             $order->total = $total + $order->sumValueFreight();
+
+            if ($data['form_payment'] === Order::FORM_PAYMENT_CASH) {
+                $order->total -= ($order->total * env('CASH_DISCOUNT')) ;
+            }
+
             $order->save();
         });
 

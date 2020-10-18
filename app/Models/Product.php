@@ -28,6 +28,14 @@ class Product extends Domain
         'status',
     ];
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+
+    const STATUS = [
+        self::STATUS_ACTIVE,
+        self::STATUS_INACTIVE,
+    ];
+
     public function subtractStock(int $amount): void
     {
         $this->stock -= $amount;

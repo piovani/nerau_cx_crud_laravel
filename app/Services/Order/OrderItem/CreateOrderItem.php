@@ -14,8 +14,12 @@ class CreateOrderItem
         /** @var Product $product */
         $product = call_user_func(new GetProduct(), $data['product_id']);
 
+        if ($product->status === Product::STATUS_ACTIVE) {
+            throw new \Exception(sprintf('O produto %s está inativo', $product->name));
+        }
+
         if ($product->stock < $data['amount']) {
-            throw new \Exception('Sem estoque sucificiente de um dos produtos');
+            throw new \Exception(sprintf('O produto %s está sem estoque', $product->name));
         }
 
         $product->subtractStock($data['amount']);
